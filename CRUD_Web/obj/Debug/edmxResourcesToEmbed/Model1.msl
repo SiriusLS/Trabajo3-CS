@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CRUDWebModelStoreContainer" CdmEntityContainer="CRUDWebEntities">
+    <EntitySetMapping Name="Alumnos">
+      <EntityTypeMapping TypeName="CRUDWebModel.Alumnos">
+        <MappingFragment StoreEntitySet="Alumnos">
+          <ScalarProperty Name="IDAlumno" ColumnName="IDAlumno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPAt" ColumnName="ApellidoPAt" />
+          <ScalarProperty Name="ApellidoMat" ColumnName="ApellidoMat" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumeroMatricula" ColumnName="NumeroMatricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asignaturas">
+      <EntityTypeMapping TypeName="CRUDWebModel.Asignaturas">
+        <MappingFragment StoreEntitySet="Asignaturas">
+          <ScalarProperty Name="CodigoAsignatura" ColumnName="CodigoAsignatura" />
+          <ScalarProperty Name="NombreAsignatura" ColumnName="NombreAsignatura" />
+          <ScalarProperty Name="Creditos" ColumnName="Creditos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

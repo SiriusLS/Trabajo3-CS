@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GuardarAlumnos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApellidoPAt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApellidoMat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroMatricula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarAlumnosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarAlumnosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarAlumnos">
+        <s:complexType />
+      </s:element>
+      <s:element name="listarAlumnosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarAlumnosResult" type="tns:ArrayOfAlumnos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAlumnos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Alumnos" nillable="true" type="tns:Alumnos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Alumnos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDAlumno" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoPAt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoMat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroMatricula" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarAsignaturas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NombreAsignatura" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Creditos" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarAsignaturasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarAsignaturasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarAsignaturas">
+        <s:complexType />
+      </s:element>
+      <s:element name="listarAsignaturasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarAsignaturasResult" type="tns:ArrayOfAsignaturas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAsignaturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Asignaturas" nillable="true" type="tns:Asignaturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Asignaturas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoAsignatura" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreAsignatura" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Creditos" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GuardarAlumnosSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAlumnosSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarAlumnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarAlumnosSoapIn">
+    <wsdl:part name="parameters" element="tns:listarAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="listarAlumnosSoapOut">
+    <wsdl:part name="parameters" element="tns:listarAlumnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAsignaturasSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarAsignaturas" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAsignaturasSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarAsignaturasResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarAsignaturasSoapIn">
+    <wsdl:part name="parameters" element="tns:listarAsignaturas" />
+  </wsdl:message>
+  <wsdl:message name="listarAsignaturasSoapOut">
+    <wsdl:part name="parameters" element="tns:listarAsignaturasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServices_CRUDSoap">
+    <wsdl:operation name="GuardarAlumnos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guardar Alumnos Nuevos, 
+ si el email no comple el formato nombre@dominio.algo arroja false, no agregara nada </wsdl:documentation>
+      <wsdl:input message="tns:GuardarAlumnosSoapIn" />
+      <wsdl:output message="tns:GuardarAlumnosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarAlumnos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listar los alumnos</wsdl:documentation>
+      <wsdl:input message="tns:listarAlumnosSoapIn" />
+      <wsdl:output message="tns:listarAlumnosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAsignaturas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guardar Asignaturas</wsdl:documentation>
+      <wsdl:input message="tns:GuardarAsignaturasSoapIn" />
+      <wsdl:output message="tns:GuardarAsignaturasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarAsignaturas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listar Asignaturas guardadas</wsdl:documentation>
+      <wsdl:input message="tns:listarAsignaturasSoapIn" />
+      <wsdl:output message="tns:listarAsignaturasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServices_CRUDSoap" type="tns:WebServices_CRUDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GuardarAlumnos">
+      <soap:operation soapAction="http://tempuri.org/GuardarAlumnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarAlumnos">
+      <soap:operation soapAction="http://tempuri.org/listarAlumnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAsignaturas">
+      <soap:operation soapAction="http://tempuri.org/GuardarAsignaturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarAsignaturas">
+      <soap:operation soapAction="http://tempuri.org/listarAsignaturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServices_CRUDSoap12" type="tns:WebServices_CRUDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GuardarAlumnos">
+      <soap12:operation soapAction="http://tempuri.org/GuardarAlumnos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarAlumnos">
+      <soap12:operation soapAction="http://tempuri.org/listarAlumnos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAsignaturas">
+      <soap12:operation soapAction="http://tempuri.org/GuardarAsignaturas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarAsignaturas">
+      <soap12:operation soapAction="http://tempuri.org/listarAsignaturas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServices_CRUD">
+    <wsdl:port name="WebServices_CRUDSoap" binding="tns:WebServices_CRUDSoap">
+      <soap:address location="https://localhost:44328/WebServices_CRUD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServices_CRUDSoap12" binding="tns:WebServices_CRUDSoap12">
+      <soap12:address location="https://localhost:44328/WebServices_CRUD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
